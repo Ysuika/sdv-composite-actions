@@ -14,12 +14,6 @@ runs:
   using: "composite"
   steps:
     - name: clone
-      run:|
-        cd ..
-        git clone ${{ inputs.repository_url }}
-        $repoName = [System.IO.Path]::GetFileNameWithoutExtension(${{ inputs.repository_url }})
+      run: git clone ${{ inputs.repository_url }}
     - name: checkout
-      run:|
-        cd $repoName
-        git checkout ${{ inputs.branch_name }}
-        cd ..
+      run: "echo hello"
