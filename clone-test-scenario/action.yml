@@ -15,5 +15,7 @@ runs:
   steps:
     - name: clone
       run: git clone ${{ inputs.repository_url }}
+      shell: pwsh
     - name: checkout
       run: "echo hello"
+      shell: pwsh
