@@ -1,0 +1,23 @@
+name: clone-test-scenario
+description: 'clone test scenario'
+inputs:
+  repository_url:
+    description: 'repository that stores test scenarios'
+    required: true
+  branch_name:
+    description: 'branch to checkout'
+    required: true
+    default: main
+runs:
+  using: "composite"
+  steps:
+    - name: clone
+      run:|
+        cd ..
+        git clone ${{ inputs.repository_url }}
+        $repoName = [System.IO.Path]::GetFileNameWithoutExtension(${{ inputs.repository_url }})
+    - name: checkout
+      run:|
+        cd $repoName
+        git checkout ${{ inputs.branch_name }}
+        cd ..
