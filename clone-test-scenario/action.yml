@@ -4,10 +4,12 @@ inputs:
   repository_url:
     description: 'repository that stores test scenarios'
     required: true
+    type: string
   branch_name:
     description: 'branch to checkout'
     required: true
     default: main
+    type: string
 runs:
   using: "composite"
   steps:
